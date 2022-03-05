@@ -1,0 +1,2 @@
+- Sida där användaren kan se alla sina notes.
+- Sida för användare där användaren kan lägga till en note.

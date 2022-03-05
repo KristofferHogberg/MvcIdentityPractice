@@ -9,7 +9,7 @@ var identityConnectionString = builder.Configuration.GetConnectionString("Identi
 builder.Services.AddDbContext<JohanRasmusContext>(options =>
 		 options.UseSqlServer(identityConnectionString));
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
 			.AddEntityFrameworkStores<JohanRasmusContext>();
 
 var applicationConnectionString = builder.Configuration.GetConnectionString("ApplicationContextConnection");
@@ -39,5 +39,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
 		name: "default",
 		pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapRazorPages();
 
 app.Run();
